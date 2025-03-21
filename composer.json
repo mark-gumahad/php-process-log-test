@@ -1,0 +1,13 @@
+{
+    "name": "pds/php-coding-challenge",
+    "description": "PHP Coding Challenge for PDS",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PDS\\LogProcessor\\": "src/"
+        }
+    }
+} 

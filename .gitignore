@@ -1,0 +1,4 @@
+/vendor/
+/output.txt
+/composer.lock
+.DS_Store 
