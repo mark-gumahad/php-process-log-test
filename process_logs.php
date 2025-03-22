@@ -89,14 +89,14 @@ class LogProcessor {
     private function formatDateTime(string $datetime): string {
         // Create a DateTime object from the datetime string
         $date = DateTime::createFromFormat('Y-m-d H:i', $datetime);
-
+    
         // Check if the datetime string is invalid
         if ($date === false) {
             throw new RuntimeException("Invalid datetime format: {$datetime}");
         }
-
-        // Format the DateTime object to a readable format
-        return $date->format('D, d F Y H:i:s');
+    
+        // Format the DateTime object to the desired format: "F d Y, H:i"
+        return $date->format('F d Y, H:i');
     }
 
     // Generate the output file with pipe-delimited entries
