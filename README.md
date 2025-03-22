@@ -1,64 +1,74 @@
-# PHP Coding Challenge
-## Think you're a PHP wizard? Prove it! We're hiring developers who can not only write clean code but also solve complex problems.<br/><br/>
-###
+# PHP Log Processing Application
 
-Develop a PHP command-line application that processes the [sample-logs.txt](https://github.com/pdsc-ph/php-coding-challenge/blob/main/sample-log.txt) file above. The program should extract and output specific data from the file according to the following specifications:
+This is a PHP command-line application that processes log files according to specific formatting requirements. The application reads a log file, processes the data according to defined specifications, and generates an output file with formatted results.
 
-```
-<ID>
-Position: 1
-Length: 12
+## Requirements
 
-<UserID>
-Position: 13
-Length: 6
+- PHP 7.4 or higher (prefer version: 8.3.6)
+- Composer (PHP package manager)
 
-<BytesTX>
-Position: 19
-Length: 8
+## Installation
 
-<BytesRX>
-Position: 27
-Length: 8
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/mark-gumahad/php-process-log-test.git
+    cd php-process-log-test
+    ```
 
-<DateTime>
-Position: 35
-Length: 17
-```
+2. Install dependencies using Composer:
+    ```bash
+    composer install
+    ```
 
-Conditions:
-* Whitespaces should be removed from the field values
-* BytesTX and BytesRX fields must be formatted with commas as thousand separators
-* DateTime field should be in the following format: ``Tue, 04 March 2025 00:00:00``
+## Project Structure
+    - `process_logs.php` - Main script for processing log files
+    - `sample-log.txt` - Sample input log file
+    - `sample-output.txt` - Example of expected output format
+    - `composer.json` - Project dependencies and configuration
 
-The program must create an output.txt file and contain the following details (see [sample-output.txt](https://github.com/pdsc-ph/php-coding-challenge/blob/main/sample-output.txt) file):
-1. A pipe delimited version of the log in the following format: ``<UserID>|<BytesTX|<BytesRX|<DateTime>|<ID>``
-2. A list of IDs sorted in ascending order. Review the sorting properly. Below is an example of an improper sorting:
-```
-.
-.
-1000VM-B28F
-1000WQ-H99P
-1000XY-K42Z
-100AS-V5X
-100BT-T92V
-.
-.
-```
-4. A list of unique UserIDs sorted in ascending order with a result id enclosed in [ ] (Example: ``[1] <UserID>``)
+## Usage
 
-##
-## To submit your application, please send your program, the generated output file, and your Curriculum Vitae (CV) or Resume to <ins>**careers.it@pds.dbello.com**</ins>. Kindly provide your mobile phone number within the email so that we may contact you.<br/><br/>
+1. Place your input log file in the project directory (or use the sample-log.txt provided)
 
-Qualifications
-* Bachelor's degree in computer science, Information Technology, or a related field (or equivalent experience).
-* 3+ years of experience in PHP development.
-* Filipino citizen residing the in the Philippines
+2. Run the script:
+    ```bash
+    php process_logs.php
+    ```
 
-Required Skills:
-* Strong proficiency in PHP and backend programming.
-* Solid understanding of MySQL databases.
-* Familiarity with version control systems (Git).
-* Excellent problem-solving and debugging skills.
-* Strong communication and teamwork skills.
-* Familiarity with front-end technologies is a plus (HTML, CSS, JavaScript and front-end technologies such jQuery, Bootstrap, and other libraries).
+The script will:
+    - Process the input log file
+    - Generate an output.txt file containing:
+    - Pipe-delimited log entries
+    - Sorted list of IDs
+    - Sorted list of unique UserIDs with result IDs
+
+## Output Format
+
+The generated output.txt will contain:
+
+1. Pipe-delimited log entries in the format:
+    ```
+    <UserID>|<BytesTX>|<BytesRX>|<DateTime>|<ID>
+    ```
+
+2. Sorted list of IDs in ascending order
+
+3. Sorted list of unique UserIDs with result IDs in the format:
+    ```
+    [1] <UserID>
+    ```
+
+## Field Specifications
+
+The log file contains the following fields:
+- ID (Position: 1, Length: 12)
+- UserID (Position: 13, Length: 6)
+- BytesTX (Position: 19, Length: 8)
+- BytesRX (Position: 27, Length: 8)
+- DateTime (Position: 35, Length: 17)
+
+## Formatting Rules
+
+- Whitespaces are removed from field values
+- BytesTX and BytesRX fields are formatted with commas as thousand separators
+- DateTime field is formatted as: `Tue, 04 March 2025 02:03:20`
